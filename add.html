@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            gap: 20px;
+        }
+        button{
+                border: none;
+                background-color: #fab700;
+                padding: 12px 25px;
+                color: white;
+                font-weight: 600;
+            }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: #f4f4f4;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+
+#name{
+    border-radius: 5px;
+                    padding: 10px 90px 10px 10px;
+                    outline: none;
+                    transition: all 1s ease;
+                    border: none;
+                    background-color: #f8f8f8;
+                    border: 2px solid  rgb(52, 52, 54);
+}
+#son{
+    border-radius: 5px;
+                    padding: 10px 90px 10px 10px;
+                    outline: none;
+                    transition: all 1s ease;
+                    border: none;
+                    background-color: #f8f8f8;
+                    border: 2px solid  rgb(52, 52, 54);
+}
+#submit{
+   
+                border: none;
+                background-color: #fab700;
+                padding: 12px 25px;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+            
+}
+input{
+    outline: none;
+}
+       
+    </style>
+</head>
+<body>
+
+    <form class="form">
+        <label for="category-name">Image:</label>
+        <input type="file" id="image" name="category-name" required>
+        <label for="Name">Name:</label>
+        <input type="text" id="name" name="category-name" required>
+        <label for="category-name">Desctription:</label>
+        <input type="text" id="son" name="category-name" required>
+        <input type="submit" value="Submit" id="submit">
+      </form>
+      <button><a href="../index.html">back</a></button>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/script/add.js"></script>
+</body>
+</html>

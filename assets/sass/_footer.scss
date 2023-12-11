@@ -1,0 +1,109 @@
+footer{
+    padding: 80px 0;
+    width: 100%;
+    background-color: #04091E;
+    color: white;
+    .container{
+        .footer{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 50px;
+            .left{
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+                flex-direction: column;
+                i{
+                    color: #fab706;
+                }
+                span{
+                    color: #fab706;
+                }
+                p{
+                    font-size: 15px;
+                    color: #575757;
+                }
+            }
+            .center{
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+                flex-direction: column;
+                margin-bottom: 50px;
+                .input{
+                    display: flex;
+                    width: 100%;
+                    input{
+                       padding: 0 10px;
+                        outline: none;
+                        border: none;
+                        padding-right: 160px;
+                      
+                    }
+                }
+                i{
+                   background-color: #fab706;
+                   padding:10px 12px;
+                }
+               
+                p{
+                    font-size: 15px;
+                    color: #575757;
+                }
+            }
+            .right{
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+                flex-direction: column;
+                margin-bottom: 50px;
+                ul{
+                    list-style-type: none;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    gap: 4px;
+                    color: white;
+                    align-items: center;
+                    a{
+                        color: white;
+                    }
+                }
+                p{
+                    font-size: 15px;
+                    color: #575757;
+                }
+            }
+        }
+    }
+}
+
+@media screen  and (max-width:991px){
+    footer{
+        .container{
+            .footer{
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+    }
+    
+}
+@media screen  and (max-width:576px){
+    footer{
+        .container{
+            .footer{
+                grid-template-columns: repeat(1,1fr);
+                .center{
+                    .input{
+                        width: 100%;
+                        input{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}

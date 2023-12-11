@@ -48,11 +48,11 @@ function showData() {
                       <img src="${card.image}" alt="" />
                   </div>
                   <div class="text">
-                      <h5>${card.header}</h5>
+                      <h4>${card.header}</h4>
                       <p>${card.son}</p>
                  
                   </div>
-                  <a href="#"><button>VIEW MORE</button></a>
+                  <a href="./dataese/Data.html?id=${card.id}"><button>VIEW MORE</button></a>
                   <button onclick="deleteRobot(${card.id})">Delete</button>
                   <button onclick="editRobot(${card.id})">Update</button>
               `;
@@ -75,4 +75,4 @@ window.onscroll = () => {
     nav.style.backgroundColor = "transparent";
   }
 };
-console.log(nav);
+console.log();
