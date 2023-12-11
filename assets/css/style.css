@@ -27,6 +27,14 @@
   cursor: pointer;
 }
 
+* i {
+  cursor: pointer;
+}
+
+* img {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 771px) {
   .container {
     max-width: 680px;
@@ -168,12 +176,22 @@ nav .container .bottom .left img {
   font-size: 18px;
   font-weight: 200;
 }
+.section1 .container .section11 h1 {
+  font-size: 55px;
+}
 .section1 .container .section11 button {
   border: none;
   background-color: #fab700;
   padding: 12px 25px;
   color: white;
   font-weight: 600;
+  outline: none;
+  transition: all 0.5s ease;
+}
+.section1 .container .section11 button:hover {
+  background-color: transparent;
+  border: 0.2px solid #fab700;
+  color: #fab700;
 }
 
 @media screen and (max-width: 776px) {
@@ -231,6 +249,13 @@ nav .container .bottom .left img {
   border-radius: 15px;
   padding: 10px 0;
   transition: all 0.5s ease;
+  position: relative;
+}
+.section2 .container .section21 .botom .card .bi-heart {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
 }
 .section2 .container .section21 .botom .card:hover {
   background-color: #fab700;
@@ -413,9 +438,11 @@ nav .container .bottom .left img {
   gap: 10px;
   padding: 20px;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 .section3 .container .section31 .bottom .text:hover {
   background-color: #fab700;
+  box-shadow: -10px 5px 30px 2px gray;
 }
 .section3 .container .section31 .bottom .text p {
   color: #686666;
@@ -618,7 +645,14 @@ footer .container .footer .right ul {
 footer .container .footer .right ul a {
   color: white;
 }
-footer .container .footer .right p {
+footer .container .footer .right ul i {
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+footer .container .footer .right ul i:hover {
+  color: #fab706;
+  transform: rotate(180deg);
+}
+footer .container .footer p {
   font-size: 15px;
   color: #575757;
 }

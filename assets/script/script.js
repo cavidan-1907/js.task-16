@@ -44,6 +44,7 @@ function showData() {
               const card1 = document.createElement('div');
               card1.classList.add('card');
               card1.innerHTML += `
+              <i class="bi bi-heart"></i>
                   <div class="img">
                       <img src="${card.image}" alt="" />
                   </div>

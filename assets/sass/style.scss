@@ -24,6 +24,12 @@
 *button{
     cursor: pointer;
 }
+*i{
+    cursor: pointer;
+}
+*img{
+    cursor: pointer;
+}
 @media screen  and (max-width:771px){
     .container{
         max-width: 680px;
