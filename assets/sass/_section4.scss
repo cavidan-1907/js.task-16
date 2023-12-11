@@ -98,7 +98,14 @@
                     .bottom{
                         width: 80%;
                         grid-template-columns: repeat(2,1fr);
-                    }
+                        .card{
+                            .text{
+                        span{
+                            width: 35%;
+                        }
+                    }}
+
+                }
                 }
             }
         }
@@ -111,6 +118,12 @@
                     .bottom{
                         width: 100%;
                         grid-template-columns: repeat(1,1fr);
+                        .card{
+                            .text{
+                        span{
+                            width: 35%;
+                        }
+                    }}
                     }
                 }
             }

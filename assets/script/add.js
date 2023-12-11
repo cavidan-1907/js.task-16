@@ -19,6 +19,7 @@ son:son.value
     }
     axios.post("http://localhost:3000/card",obj).then(res=> console.log(res.data))
 }
+console.log(obj);
 reader.readAsDataURL(src);
-window.location="../index.html"
+
 })

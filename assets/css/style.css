@@ -101,6 +101,18 @@ nav .container .bottom ul {
   display: flex;
   gap: 20px;
 }
+nav .container .bottom ul li {
+  transition: all 1s ease;
+}
+nav .container .bottom ul li:hover {
+  color: #fab700;
+}
+nav .container .bottom ul li a {
+  transition: all 1s ease;
+}
+nav .container .bottom ul li a:hover {
+  color: #fab700;
+}
 nav .container .bottom ul .dropdown {
   position: relative;
   transition: all 1s ease;
@@ -566,11 +578,17 @@ nav .container .bottom .left img {
     width: 80%;
     grid-template-columns: repeat(2, 1fr);
   }
+  .section4 .container .section41 .bottom .card .text span {
+    width: 35%;
+  }
 }
 @media screen and (max-width: 771px) {
   .section4 .container .section41 .bottom {
     width: 100%;
     grid-template-columns: repeat(1, 1fr);
+  }
+  .section4 .container .section41 .bottom .card .text span {
+    width: 35%;
   }
 }
 footer {
@@ -672,4 +690,85 @@ footer .container .footer p {
   footer .container .footer .center .input input {
     width: 100%;
   }
+}
+body {
+  z-index: 111;
+}
+
+.uptade {
+  display: flex;
+  flex-direction: column;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  position: fixed;
+  z-index: 11111111111111111000000;
+  width: 300px;
+  height: 300px;
+  display: none;
+}
+.uptade .form1 {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  border-radius: 20px;
+}
+.uptade .form1 p {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.uptade .form1 #name1 {
+  border-radius: 5px;
+  padding: 10px 90px 10px 10px;
+  outline: none;
+  transition: all 1s ease;
+  border: none;
+  background-color: #f8f8f8;
+  border: 2px solid rgb(52, 52, 54);
+}
+.uptade .form1 #category1 {
+  border-radius: 5px;
+  padding: 10px 90px 10px 10px;
+  outline: none;
+  transition: all 1s ease;
+  border: none;
+  background-color: #f8f8f8;
+  border: 2px solid rgb(52, 52, 54);
+}
+.uptade .form1 #image1 {
+  border: none;
+  background-color: #fab700;
+  padding: 12px 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.uptade .form1 #submit1 {
+  border: none;
+  background-color: #fab700;
+  padding: 12px 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.uptade .form1 input {
+  outline: none;
+}
+
+.scrol {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+.scrol img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }/*# sourceMappingURL=style.css.map */
