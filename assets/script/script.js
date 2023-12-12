@@ -53,7 +53,7 @@ function showData() {
                       <p>${card.son}</p>
                  
                   </div>
-                  <a href="./dataese/Data.html?id=${card.id}"><button>VIEW MORE</button></a>
+                  <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
                   <button onclick="deleteCard(${card.id})">Delete</button>
                   <button onclick="editCard(${card.id})">Update</button>
               `;
