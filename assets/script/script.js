@@ -3,7 +3,9 @@ let menu = document.querySelector(".menu");
 let modal = document.querySelector(".modal-bg");
 let close = document.querySelector(".close");
 let scrol=document.querySelector(".scroll")
+modal.style.display = "none";
 menu.addEventListener('click', () => {
+  menu.style.display="none";
   if (window.innerWidth > 991) {
     modal.style.display = "none";
   } else {
@@ -26,8 +28,10 @@ menu.addEventListener('click', () => {
 close.addEventListener('click', () => {
   modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
   modal.querySelector(".modal-menu").style.left = "-30%";
+
   setTimeout(() => {
     modal.style.display = "none";
+    menu.style.display="block";
   }, 500);
 });
 
