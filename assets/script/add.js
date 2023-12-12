@@ -21,5 +21,6 @@ son:son.value
 }
 console.log(obj);
 reader.readAsDataURL(src);
+window.location="../index.html";
 
 })

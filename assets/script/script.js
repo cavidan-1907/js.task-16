@@ -2,10 +2,14 @@
 let menu = document.querySelector(".menu");
 let modal = document.querySelector(".modal-bg");
 let close = document.querySelector(".close");
-let scrol=document.querySelector(".scroll")
+let scrol = document.querySelector(".scroll");
+let loadBtn = document.querySelector(".button");
+let select = document.querySelector("#select");
+page = 1;
+//modal
 modal.style.display = "none";
 menu.addEventListener('click', () => {
-  menu.style.display="none";
+  menu.style.display = "none";
   if (window.innerWidth > 991) {
     modal.style.display = "none";
   } else {
@@ -31,24 +35,28 @@ close.addEventListener('click', () => {
 
   setTimeout(() => {
     modal.style.display = "none";
-    menu.style.display="block";
+    menu.style.display = "block";
   }, 500);
 });
 
 
+//
+
+
+//data
 
 
 function showData() {
   let bottom = document.querySelector(".botom");
 
-  fetch(`http://localhost:3000/card`)
-      .then(response => response.json())
-      .then(data => {
-          data.forEach(card => {
-              const card1 = document.createElement('div');
-              card1.classList.add('card');
-              card1.innerHTML += `
-              <i class="bi bi-heart"></i>
+  fetch(`http://localhost:3000/card?_page=${page}&_limit=3`)
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(card => {
+        const card1 = document.createElement('div');
+        card1.classList.add('card');
+        card1.innerHTML += `
+              <i onclick="Favorite(${card.id})" class="bi bi-heart"></i>
                   <div class="img">
                       <img src="${card.image}" alt="" />
                   </div>
@@ -57,82 +65,199 @@ function showData() {
                       <p>${card.son}</p>
                  
                   </div>
+                  <div>
                   <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
                   <button onclick="deleteCard(${card.id})">Delete</button>
                   <button onclick="editCard(${card.id})">Update</button>
+                  </div>
               `;
 
-              bottom.appendChild(card1);
-          });
+        bottom.appendChild(card1);
       });
+      select.addEventListener("change", (e) => {
+        if (e.target.value == 'header') {
+
+          console.log("HEADERRR");
+
+          let dataS = data.sort((a, b) => {
+            return a.header.localeCompare(b.header);
+          });
+          console.log(dataS);
+          bottom.innerHTML = "";
+          dataS.forEach(card => {
+            const card1 = document.createElement('div');
+            card1.classList.add('card');
+            card1.innerHTML += `
+              <i onclick="Favorite(${card.id})" class="bi bi-heart"></i>
+                  <div class="img">
+                      <img src="${card.image}" alt="" />
+                  </div>
+                  <div class="text">
+                      <h4>${card.header}</h4>
+                      <p>${card.son}</p>
+                 
+                  </div>
+                  <div>
+                  <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
+                  <button onclick="deleteCard(${card.id})">Delete</button>
+                  <button onclick="editCard(${card.id})">Update</button></div>
+              `;
+
+            bottom.appendChild(card1);
+          })
+        } else if (e.target.value == 'son') {
+
+          console.log("DESC");
+
+          console.log(data);
+          let dataS1 = data.sort((a, b) => {
+            return a.son.toLowerCase().localeCompare(b.son.toLowerCase());
+          });
+          console.log(dataS1);
+          bottom.innerHTML = "";
+          dataS1.forEach(card => {
+            const card1 = document.createElement('div');
+            card1.classList.add('card');
+            card1.innerHTML += `
+              <i onclick="Favorite(${card.id})" class="bi bi-heart"></i>
+                  <div class="img">
+                      <img src="${card.image}" alt="" />
+                  </div>
+                  <div class="text">
+                      <h4>${card.header}</h4>
+                      <p>${card.son}</p>
+                 
+                  </div>
+                  <div>
+                  
+                  <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
+                  <button onclick="deleteCard(${card.id})">Delete</button>
+                  <button onclick="editCard(${card.id})">Update</button>
+                  </div>
+              `;
+
+            bottom.appendChild(card1);
+          })
+        }
+        else if (e.target.value == 'All') {
+          console.log("all");
+         bottom.innerHTML =''
+
+         showData()
+
+        }
+      })
+
+    });
 }
-let form1=document.querySelector(".form1");
-let uptade=document.querySelector(".uptade");
-let name1=document.querySelector("#name1");
-let category1=document.querySelector("#category1");
-let image1=document.querySelector("#image1");
-let none=document.querySelector(".x");
+//select
+
+
+
+//uptade
+
+let form1 = document.querySelector(".form1");
+let uptade = document.querySelector(".uptade");
+let name1 = document.querySelector("#name1");
+let category1 = document.querySelector("#category1");
+let image1 = document.querySelector("#image1");
+let none = document.querySelector(".x");
 
 
 showData();
-let section2=document.querySelector(".section2");
+let section2 = document.querySelector(".section2");
 function editCard(id) {
 
-  section2.style.opacity="0.5"
-  uptade.style.display="block";
-  none.addEventListener("click",(e)=>{
+  section2.style.opacity = "0.5"
+  uptade.style.display = "block";
+  none.addEventListener("click", (e) => {
     e.preventDefault();
-    uptade.style.display="none";
-    section2.style.opacity="1";
-   
-    });
-    form1.addEventListener("submit",function(event){
-   
-      event.preventDefault();
-      axios.get(`http://localhost:3000/card/${id}`).then(res=>console.log(res.data))
-      let src1=image1.files[0]
-      const reader1=new FileReader();
-      reader1.onload=function(e){
-        const obj1={
-          image:e.target.result,
-          header:name1.value,
-          son:category1.value
+    uptade.style.display = "none";
+    section2.style.opacity = "1";
 
-        }
-        axios.patch(`http://localhost:3000/card/${id}`,obj1).then(res=>console.log(res.data))
+  });
+  form1.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+    axios.get(`http://localhost:3000/card/${id}`).then(res => console.log(res.data))
+    let src1 = image1.files[0]
+    const reader1 = new FileReader();
+    reader1.onload = function (e) {
+      const obj1 = {
+        image: e.target.result,
+        header: name1.value,
+        son: category1.value
+
       }
-      reader1.readAsDataURL(src1)
-})
+      axios.patch(`http://localhost:3000/card/${id}`, obj1).then(res => console.log(res.data))
+    }
+    reader1.readAsDataURL(src1)
+  })
 }
-
-function deleteCard (id){
+//loadbtn
+loadBtn.addEventListener("click", () => {
+  page++
+  showData()
+})
+//delete
+function deleteCard(id) {
   console.log(id);
   axios.delete(`http://localhost:3000/card/${id}`)
-window.location.reload()
+  window.location.reload()
 }
-scrol.style.display="none";
-let nav=document.querySelector("nav");
+
+
+
+//scroll
+scrol.style.display = "none";
+let nav = document.querySelector("nav");
 
 window.onscroll = () => {
 
 
 
-  
+
   if (window.scrollY > 50) {
     nav.style.background = "rgba(18, 18, 19, 0.9)";
     nav.style.padding = "10px 0";
-    scrol.style.display="block";
-    scrol.addEventListener("click",()=>{
+    scrol.style.display = "block";
+    scrol.addEventListener("click", () => {
       window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
       })
     })
   } else {
     nav.style.padding = "0px 0";
 
     nav.style.backgroundColor = "transparent";
-    scrol.style.display="none";
+    scrol.style.display = "none";
   }
 };
-console.log();
+
+//favorite
+
+function Favorite(id) {
+  event.target.classList.remove('bi-heart')
+  event.target.classList.add('bi-heart-fill')
+  axios.get(`http://localhost:3000/card/${id}`)
+    .then(res => {
+      console.log(res.data);
+      return res.data
+    })
+    .then(res => {
+      axios.get(`http://localhost:3000/favoourites`)
+        .then(response => {
+          let iD = response.data.find(f => f.id === response.id);
+          if (!iD) {
+            axios.post(`  http://localhost:3000/favoourites`, res)
+            console.log(event.target);
+          }
+          else {
+            axios.delete(`http://localhost:3000/favoourites/${iD.id}`)
+          }
+        })
+    })
+
+
+}
