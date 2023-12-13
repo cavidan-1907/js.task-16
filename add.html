@@ -1,81 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <title>ADD HTml</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
-            height: 100vh;
-            gap: 20px;
+            background-color: #bfbfbf;
         }
-        button{
-                border: none;
-                background-color: #fab700;
-                padding: 12px 25px;
-                color: white;
-                font-weight: 600;
-            }
+
+        button {
+            border: none;
+            background-color: #fab700;
+            padding: 12px 25px;
+            color: white;
+            font-weight: 600;
+            width: 10%;
+            margin-bottom: 10px;
+
+        }
 
         form {
             background-color: #fff;
             padding: 20px;
-
+            width: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             gap: 10px;
             box-shadow: #f4f4f4;
+            border-radius: 20px;
         }
-        a{
+
+        a {
             color: white;
             text-decoration: none;
         }
 
-#name{
-    border-radius: 5px;
-                    padding: 10px 90px 10px 10px;
-                    outline: none;
-                    transition: all 1s ease;
-                    border: none;
-                    background-color: #f8f8f8;
-                    border: 2px solid  rgb(52, 52, 54);
-}
-#son{
-    border-radius: 5px;
-                    padding: 10px 90px 10px 10px;
-                    outline: none;
-                    transition: all 1s ease;
-                    border: none;
-                    background-color: #f8f8f8;
-                    border: 2px solid  rgb(52, 52, 54);
-}
-#submit{
-   
-                border: none;
-                background-color: #fab700;
-                padding: 12px 25px;
-                color: white;
-                font-weight: 600;
-                cursor: pointer;
-            
-}
-input{
-    outline: none;
-}
-       
+        #name {
+            border-radius: 5px;
+            padding: 10px 90px 10px 10px;
+            outline: none;
+            transition: all 1s ease;
+            border: none;
+            background-color: #f8f8f8;
+            border: 2px solid rgb(52, 52, 54);
+        }
+
+        #son {
+            border-radius: 5px;
+            padding: 10px 90px 10px 10px;
+            outline: none;
+            transition: all 1s ease;
+            border: none;
+            background-color: #f8f8f8;
+            border: 2px solid rgb(52, 52, 54);
+        }
+
+        #submit {
+
+            border: none;
+            background-color: #fab700;
+            padding: 12px 25px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+
+        }
+
+        input {
+            outline: none;
+        }
+        .add{
+            padding:100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        } 
     </style>
 </head>
-<body>
 
+<body>
+    <nav style="background-color: black;">
+        <div class="container">
+
+            <div class="top">
+                <ul>
+                    <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                    <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                    <li><a href="#"><i class="bi bi-dribbble"></i></a></li>
+                    <li><a href="#"><i class="bi bi-behance"></i></a></li>
+                </ul>
+                <div class="right">
+                    <p> <span>+880 012 3654 896 </span> <i class="bi bi-telephone"></i> <a href="#">Register/login</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="bottom">
+                <div class="left"><img src="./assets/img/logo.png (1).webp" alt=""></div>
+                <div class="right">
+                    <ul>
+                        <li><a href="./add.html" style="color: white;">ADD</a></li>
+                        <li>HOME</li>
+                        <li>ABOUT US</li>
+                        <li>SERVICE</li>
+                        <li>TEAM</li>
+                        <li>PRICE</li>
+                        <li>BLOG</li>
+                        <li>CONTACT</li>
+                        <li class="dropdown">PAGES <i class="bi bi-chevron-compact-down"></i>
+                            <ul class="dropdown-menu">
+                                <li>blogg Single</li>
+                                <li>Elements</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu"><i class="bi bi-list"></i></div>
+            </div>
+        </div>
+
+        </div>
+    </nav>
+    <div class="add">
+        <div class="container">
     <form class="form">
         <label for="category-name">Image:</label>
         <input type="file" id="image" name="category-name" required>
@@ -84,9 +152,64 @@ input{
         <label for="category-name">Desctription:</label>
         <input type="text" id="son" name="category-name" required>
         <input type="submit" value="Submit" id="submit">
-      </form>
-      <button><a href="../index.html">back</a></button>
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </form>
+</div>
+    <button><a href="../index.html">back</a></button>
+</div>
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="left">
+                    <h4>About Us</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore dolore magna aliqua.</p>
+                    <p>Copyright ©2023 All rights reserved | This template is made with <i class="bi bi-heart"></i> by
+                        <span>Colorlib</span></p>
+                </div>
+                <div class="center">
+                    <h4>Newsletter</h4>
+                    <p>Stay update with our latest</p>
+                    <div class="input"><input type="email" placeholder="Enter Email"><i class="bi bi-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="right">
+                    <h4>Follow Us</h4>
+                    <p>Let us be social</p>
+                    <ul>
+                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="#"><i class="bi bi-dribbble"></i></a></li>
+                        <li><a href="#"><i class="bi bi-behance"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal-bg">
+        <div class="modal-menu">
+            <ul class="menu">
+                <li><a href="./add.html" style="color: white; font-weight: 450;">ADD</a></li>
+                <li class="ul-a">HOME</li>
+                <li class="ul-a">ABOUT US</li>
+                <li class="ul-a">SERVICES</li>
+                <li class="ul-a">TEAM</li>
+                <li class="ul-a">PRICE</li>
+                <li class="ul-a">BLOG</li>
+                <li class="ul-a">CONTACT</li>
+                <li class="ul-a drop">PAGES<i class="bi bi-chevron-compact-down"></i>
+                    <ul class="dropdown-menu">
+                        <li>blogg Single</li>
+                        <li>Elements</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <p class="close"><i class="bi bi-x"></i></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/script/script.js"></script>
+
     <script src="./assets/script/add.js"></script>
 </body>
+
 </html>

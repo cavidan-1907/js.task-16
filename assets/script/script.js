@@ -5,7 +5,7 @@ let close = document.querySelector(".close");
 let scrol = document.querySelector(".scroll");
 let loadBtn = document.querySelector(".button");
 let select = document.querySelector("#select");
-page = 1;
+let page = 1;
 //modal
 modal.style.display = "none";
 menu.addEventListener('click', () => {
@@ -67,7 +67,7 @@ function showData() {
                   </div>
                   <div>
                   <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
-                  <button onclick="deleteCard(${card.id})">Delete</button>
+                  <button onclick="deleteCard(${card.id})" style="background-color: red;">Delete</button>
                   <button onclick="editCard(${card.id})">Update</button>
                   </div>
               `;
@@ -99,7 +99,7 @@ function showData() {
                   </div>
                   <div>
                   <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
-                  <button onclick="deleteCard(${card.id})">Delete</button>
+                  <button onclick="deleteCard(${card.id})" style="background-color: red;">Delete</button>
                   <button onclick="editCard(${card.id})">Update</button></div>
               `;
 
@@ -131,7 +131,7 @@ function showData() {
                   <div>
                   
                   <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
-                  <button onclick="deleteCard(${card.id})">Delete</button>
+                  <button onclick="deleteCard(${card.id})" style="background-color: red;">Delete</button>
                   <button onclick="editCard(${card.id})">Update</button>
                   </div>
               `;
@@ -238,8 +238,11 @@ window.onscroll = () => {
 //favorite
 
 function Favorite(id) {
+  event.preventDefault();
+  if(event.target.classList.contains('bi-heart')){
   event.target.classList.remove('bi-heart')
   event.target.classList.add('bi-heart-fill')
+
   axios.get(`http://localhost:3000/card/${id}`)
     .then(res => {
       console.log(res.data);
@@ -250,7 +253,7 @@ function Favorite(id) {
         .then(response => {
           let iD = response.data.find(f => f.id === response.id);
           if (!iD) {
-            axios.post(`  http://localhost:3000/favoourites`, res)
+            axios.post(`http://localhost:3000/favoourites`, res)
             console.log(event.target);
           }
           else {
@@ -258,6 +261,11 @@ function Favorite(id) {
           }
         })
     })
-
-
+  }
+    else {
+     event.preventDefault();
+      event.target.classList.remove('bi-heart-fill')
+      event.target.classList.add('bi-heart')
+      axios.delete(`http://localhost:3000/favoourites/${id}`)
+    }
 }
