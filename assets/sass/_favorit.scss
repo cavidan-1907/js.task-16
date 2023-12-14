@@ -1,8 +1,14 @@
 .favorit {
-    width: 100%;
-    background-color: #f8f8f8;
     padding: 130px 0;
-
+    width: 100%;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+   
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/header-bg.jpg);
     .container {
         .section21 {
             display: flex;
