@@ -5,12 +5,12 @@ body{
 .uptade{
     display: flex;
     flex-direction: column;
-    top: calc(50% - 190px );
+    top: calc(50% - 240px );
     left:calc(50% - 190px );
     position: fixed;
     z-index: 11111111111111111111111;
     width: 380px;
-    height: 380px;
+    height: 330px;
     display: none;
     .form1{
         background-color: #fff;

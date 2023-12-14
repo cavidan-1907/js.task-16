@@ -7,28 +7,31 @@
     z-index: 100;
     display: none;
     transition: background-color 0.5s ease;
-    .drop{
+
+    .drop {
         position: relative;
         transition: all 1s ease;
-        &:hover{
-            .dropdown-menu{
+
+        &:hover {
+            .dropdown-menu {
                 opacity: 1;
             }
         }
-        
-    .dropdown-menu{
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        color:#222;
-        position: absolute;
-        opacity: 0;
-        width: 120px;
-        transition: all 0.5s ease;
-        top: 25px;
-        gap: 6px;
-        font-weight: 400;
-        padding:10px 3px;}
+
+        .dropdown-menu {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            color: #222;
+            position: absolute;
+            opacity: 0;
+            width: 120px;
+            transition: all 0.5s ease;
+            top: 25px;
+            gap: 6px;
+            font-weight: 400;
+            padding: 10px 3px;
+        }
     }
 
     .modal-menu {
@@ -40,8 +43,9 @@
         left: 0;
         top: 0;
         z-index: 1001;
-        left: -30%; 
+        left: -30%;
         transition: left 0.6s ease;
+
         .menu {
             display: flex;
             flex-direction: column;
@@ -59,7 +63,8 @@
 
         }
     }
-    p{
+
+    p {
         position: absolute;
         right: 56px;
         top: 47px;
@@ -69,11 +74,3 @@
         cursor: pointer;
     }
 }
-
-
-
-
-
-
-
-

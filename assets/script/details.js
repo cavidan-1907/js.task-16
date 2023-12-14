@@ -1,8 +1,8 @@
-let id =new URLSearchParams (window.location.search).get("id");
-let data2=document.querySelector(".data");
+let id = new URLSearchParams(window.location.search).get("id");
+let data2 = document.querySelector(".data");
 fetch(`http://localhost:3000/card/${id}`)
-.then(response => response.json())
-.then(data => {
+    .then(response => response.json())
+    .then(data => {
         const card2 = document.createElement('div');
         card2.classList.add('card1');
         card2.innerHTML = `
@@ -17,4 +17,4 @@ fetch(`http://localhost:3000/card/${id}`)
             </div>
         `
         data2.append(card2)
-});
+    });

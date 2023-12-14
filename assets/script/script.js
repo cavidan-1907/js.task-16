@@ -6,53 +6,17 @@ let scrol = document.querySelector(".scroll");
 let loadBtn = document.querySelector(".button");
 let select = document.querySelector("#select");
 let page = 1;
-//modal
-modal.style.display = "none";
-menu.addEventListener('click', () => {
-  menu.style.display = "none";
-  if (window.innerWidth > 991) {
-    modal.style.display = "none";
-    menu.style.display = "none";
-  } else {
-    if (modal.style.display === "none") {
-      modal.style.display = "block";
-      setTimeout(() => {
-        modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-        modal.querySelector(".modal-menu").style.left = "0";
-      }, 100);
-    } else {
-      modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
-      modal.querySelector(".modal-menu").style.left = "-30%";
-      setTimeout(() => {
-        modal.style.display = "none";
-      }, 500);
-    }
-  }
-});
-
-close.addEventListener('click', () => {
-  modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
-  modal.querySelector(".modal-menu").style.left = "-30%";
-
-  setTimeout(() => {
-    modal.style.display = "none";
-    menu.style.display = "block";
-  }, 500);
-});
-
-
-//
-
-
+let search= document.querySelector("#search");
+let arr=[];
 //data
-
 
 function showData() {
   let bottom = document.querySelector(".botom");
-
   fetch(`http://localhost:3000/card?_page=${page}&_limit=3`)
     .then(response => response.json())
     .then(data => {
+      arr.push(data);
+      console.log(arr);
       data.forEach(card => {
         const card1 = document.createElement('div');
         card1.classList.add('card');
@@ -64,7 +28,6 @@ function showData() {
                   <div class="text">
                       <h4>${card.header}</h4>
                       <p>${card.son}</p>
-                 
                   </div>
                   <div class="but">
                   <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
@@ -74,7 +37,53 @@ function showData() {
               `;
 
         bottom.appendChild(card1);
+        return arr.flat()
       });
+
+search.addEventListener('input',()=>{
+  let value=event.target.value
+  console.log(value);
+  if(value!==null){
+    data.filter(c=>{
+      bottom.innerHTML=' '
+      return c.header.toLowerCase().includes(value.toLowerCase())
+    }).forEach(card=>{
+      const card1 = document.createElement('div');
+      card1.classList.add('card');
+      card1.innerHTML += `
+            <i onclick="Favorite(${card.id})" class="bi bi-heart"></i>
+                <div class="img">
+                    <img src="${card.image}" alt="" />
+                </div>
+                <div class="text">
+                    <h4>${card.header}</h4>
+                    <p>${card.son}</p>
+                </div>
+                <div class="but">
+                <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
+                <button onclick="deleteCard(${card.id})" style="background-color: red;">Delete</button>
+                <button onclick="editCard(${card.id})">Update</button>
+                </div>
+            `;
+
+      bottom.appendChild(card1);
+    })
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       select.addEventListener("change", (e) => {
         if (e.target.value == 'header') {
 
@@ -139,6 +148,74 @@ function showData() {
 
             bottom.appendChild(card1);
           })
+        }
+        else if(e.target.value == 'artan'){
+          console.log("artan");
+
+          // console.log(data);
+          let dataS2 = data.sort((a, b) => {
+            return a.id-b.id;
+          });
+          console.log(dataS2);
+          bottom.innerHTML = "";
+          dataS2.forEach(card => {
+            const card1 = document.createElement('div');
+            card1.classList.add('card');
+            card1.innerHTML += `
+              <i onclick="Favorite(${card.id})" class="bi bi-heart"></i>
+                  <div class="img">
+                      <img src="${card.image}" alt="" />
+                  </div>
+                  <div class="text">
+                      <h4>${card.header}</h4>
+                      <p>${card.son}</p>
+                 
+                  </div>
+                  <div>
+                  
+                  <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
+                  <button onclick="deleteCard(${card.id})" style="background-color: red;">Delete</button>
+                  <button onclick="editCard(${card.id})">Update</button>
+                  </div>
+              `;
+
+            bottom.appendChild(card1);
+          })
+          
+        }
+        else if(e.target.value == 'azalan'){
+          console.log("azalan");
+
+          // console.log(data);
+          let dataS3 = data.sort((a, b) => {
+            return b.id-a.id;
+          });
+          console.log(dataS3);
+          bottom.innerHTML = "";
+          dataS3.forEach(card => {
+            const card1 = document.createElement('div');
+            card1.classList.add('card');
+            card1.innerHTML += `
+              <i onclick="Favorite(${card.id})" class="bi bi-heart"></i>
+                  <div class="img">
+                      <img src="${card.image}" alt="" />
+                  </div>
+                  <div class="text">
+                      <h4>${card.header}</h4>
+                      <p>${card.son}</p>
+                 
+                  </div>
+                  <div>
+                  
+                  <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
+                  <button onclick="deleteCard(${card.id})" style="background-color: red;">Delete</button>
+                  <button onclick="editCard(${card.id})">Update</button>
+                  </div>
+              `;
+
+            bottom.appendChild(card1);
+          })
+          
         }
         else if (e.target.value == 'All') {
           console.log("all");
@@ -293,3 +370,39 @@ function Favorite(id) {
     axios.delete(`http://localhost:3000/favoourites/${id}`)
   }
 }
+
+//modal
+modal.style.display = "none";
+menu.addEventListener('click', () => {
+  menu.style.display = "none";
+  if (window.innerWidth > 991) {
+    modal.style.display = "none";
+    menu.style.display = "none";
+  } else {
+    if (modal.style.display === "none") {
+      modal.style.display = "block";
+      setTimeout(() => {
+        modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        modal.querySelector(".modal-menu").style.left = "0";
+      }, 100);
+    } else {
+      modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
+      modal.querySelector(".modal-menu").style.left = "-30%";
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 500);
+    }
+  }
+});
+
+close.addEventListener('click', () => {
+  modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
+  modal.querySelector(".modal-menu").style.left = "-30%";
+
+  setTimeout(() => {
+    modal.style.display = "none";
+    menu.style.display = "block";
+  }, 500);
+});
+
+

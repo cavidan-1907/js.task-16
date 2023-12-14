@@ -1,64 +1,75 @@
-footer{
+footer {
     padding: 80px 0;
     width: 100%;
     background-color: #04091E;
     color: white;
-    .container{
-        .footer{
+
+    .container {
+        .footer {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(3, auto);
             gap: 50px;
-            .left{
+
+            .left {
                 display: flex;
                 align-items: flex-start;
                 gap: 20px;
                 flex-direction: column;
-                i{
+
+                i {
                     color: #fab706;
                 }
-                span{
+
+                span {
                     color: #fab706;
                 }
-                p{
+
+                p {
                     font-size: 15px;
                     color: #575757;
                 }
             }
-            .center{
+
+            .center {
                 display: flex;
                 align-items: flex-start;
                 gap: 20px;
                 flex-direction: column;
                 margin-bottom: 50px;
-                .input{
+
+                .input {
                     display: flex;
                     width: 100%;
-                    input{
-                       padding: 0 10px;
+
+                    input {
+                        padding: 0 10px;
                         outline: none;
                         border: none;
                         padding-right: 160px;
-                      
+
                     }
                 }
-                i{
-                   background-color: #fab706;
-                   padding:10px 12px;
+
+                i {
+                    background-color: #fab706;
+                    padding: 10px 12px;
                 }
-               
-                p{
+
+                p {
                     font-size: 15px;
                     color: #575757;
                 }
             }
-            .right{
+
+            .right {
                 display: flex;
                 align-items: flex-start;
                 gap: 20px;
                 flex-direction: column;
                 margin-bottom: 50px;
-                ul{
+
+                ul {
                     list-style-type: none;
                     display: flex;
                     justify-content: space-between;
@@ -66,47 +77,53 @@ footer{
                     gap: 4px;
                     color: white;
                     align-items: center;
-                    a{
+
+                    a {
                         color: white;
                     }
+
                     i {
                         transition: transform 0.5s ease, color 0.5s ease;
-        
+
                         &:hover {
                             color: #fab706;
-                            transform: rotate(180deg); 
+                            transform: rotate(180deg);
                         }
                     }
-                    
-                    }
+
                 }
-                p{
-                    font-size: 15px;
-                    color: #575757;
-                }
+            }
+
+            p {
+                font-size: 15px;
+                color: #575757;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:991px) {
+    footer {
+        .container {
+            .footer {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     }
 
-@media screen  and (max-width:991px){
-    footer{
-        .container{
-            .footer{
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-    }
-    
 }
-@media screen  and (max-width:576px){
-    footer{
-        .container{
-            .footer{
-                grid-template-columns: repeat(1,1fr);
-                .center{
-                    .input{
+
+@media screen and (max-width:576px) {
+    footer {
+        .container {
+            .footer {
+                grid-template-columns: repeat(1, 1fr);
+
+                .center {
+                    .input {
                         width: 100%;
-                        input{
+
+                        input {
                             width: 100%;
                         }
                     }
@@ -114,5 +131,5 @@ footer{
             }
         }
     }
-    
+
 }
