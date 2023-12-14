@@ -1,7 +1,6 @@
 nav{
     width: 100%;
     position: fixed;
- 
     color: white;
     z-index: 33;
     width: 100%;
@@ -115,7 +114,11 @@ nav{
         }
     
 }
-@media screen and (max-width:776px) {
+
+
+
+
+@media screen and (max-width:880px) {
     nav{
         .container{
             .top{

@@ -1,7 +1,7 @@
-.section2{
+.favorit{
     width: 100%;
     background-color: #f8f8f8;
-    padding: 80px 0;
+    padding: 130px 0;
     .container{
         .section21{
             display: flex;
@@ -11,29 +11,13 @@
             width: 100%;
             gap: 100px;
           
-            .top{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                width: 100%;
-                h1{
-                    font-size: 38px;
-                    font-weight: 600;
-                }
-                p{
-                    font-size: 14px;
-                    font-weight: 300;
-                    color: gray;
-                }
-            }
-            .botom{
+
+            .botm{
                 display: grid;
                 grid-template-columns: repeat(3,1fr);
                 width: 100%;
                 gap: 50px;
-                .card{
+                .card2{
                     display: flex;
                     flex-direction: column;
                     align-items:center;
@@ -91,13 +75,7 @@ color: white;
                     }
                 }
             }
-            .but{
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                width: 100%;
-                gap: 10px;
-            }
+            
                 .button{
                     border: none;
                     background-color: #fab700;
@@ -112,12 +90,12 @@ color: white;
 }
 @media screen and (max-width:776px) {
     
-    .section2{
+    .favorit{
         .container{
             .section21{
-            .botom{
+            .botm{
                 grid-template-columns: repeat(1,1fr);
-                .card{
+                .card2{
                     text-align: center;
                     display: flex;
                     flex-direction: column;

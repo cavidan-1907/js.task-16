@@ -34,6 +34,7 @@
                 <div class="left"><img src="./assets/img/logo.png (1).webp" alt=""></div>
                 <div class="right">
                     <ul>
+                        <li><a href="./favorit.html" style="color: white;">FAVORIT</a></li>
                         <li><a href="./add.html" style="color: white;">ADD</a></li>
                         <li>HOME</li>
                         <li>ABOUT US</li>
@@ -77,13 +78,13 @@
                         <option value="All">All</option>
                         <option value="header">header</option>
                         <option value="son">description</option>
-                    
+
                     </select>
                 </div>
                 <div class="botom">
 
                 </div>
-                <button class="button" >Load More</button>
+                <button class="button">Load More</button>
             </div>
         </div>
     </section>
@@ -228,7 +229,8 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>
                     <p>Copyright ©2023 All rights reserved | This template is made with <i class="bi bi-heart"></i> by
-                        <span>Colorlib</span></p>
+                        <span>Colorlib</span>
+                    </p>
                 </div>
                 <div class="center">
                     <h4>Newsletter</h4>
@@ -285,18 +287,22 @@
         </div>
         <p class="close"><i class="bi bi-x"></i></p>
     </div>
-    <div class="uptade">    <form class="form1">
-        <label for="category-name">Image:</label> <p class="x"><i class="bi bi-x" style="font-size: 20px;"></i></p>
-        <input type="file" id="image1" name="category-name"required>
-    
-        <label for="category-name">Name:</label>
-        <input type="text" id="name1" name="category-name" placeholder="Edit Name:" required>
-        <label for="category-name">Category:</label>
-        <input type="text" id="category1" name="category-name" placeholder="Edit Image" required>
-        <input type="submit" value="Submit" id="submit1">
-      </form></div>
-<div class="scrol"><img src="./assets/img/scroll . top.gif" class="scroll" alt=""></div>
+    <div class="uptade">
+        <form class="form1">
+            <label for="category-name">Image:</label>
+            <p class="x"><i class="bi bi-x" style="font-size: 20px;"></i></p>
+            <input type="file" id="image1" name="category-name" required>
+            <label for="image1"><img id="img" src=" " alt=""></label>
+            <label for="category-name">Name:</label>
+            <input type="text" id="name1" name="category-name" placeholder="Edit Name:" required>
+            <label for="category-name">Category:</label>
+            <input type="text" id="category1" name="category-name" placeholder="Edit Image" required>
+            <input type="submit" value="Submit" id="submit1">
+        </form>
+    </div>
+    <div class="scrol"><img src="./assets/img/scroll . top.gif" class="scroll" alt=""></div>
     <script src="./assets/script/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
+
 </html>

@@ -12,6 +12,7 @@ menu.addEventListener('click', () => {
   menu.style.display = "none";
   if (window.innerWidth > 991) {
     modal.style.display = "none";
+    menu.style.display = "none";
   } else {
     if (modal.style.display === "none") {
       modal.style.display = "block";
@@ -65,7 +66,7 @@ function showData() {
                       <p>${card.son}</p>
                  
                   </div>
-                  <div>
+                  <div class="but">
                   <a href="./details/details.html?id=${card.id}"><button>Details</button></a>
                   <button onclick="deleteCard(${card.id})" style="background-color: red;">Delete</button>
                   <button onclick="editCard(${card.id})">Update</button>
@@ -141,9 +142,9 @@ function showData() {
         }
         else if (e.target.value == 'All') {
           console.log("all");
-         bottom.innerHTML =''
+          bottom.innerHTML = ''
 
-         showData()
+          showData()
 
         }
       })
@@ -162,6 +163,17 @@ let name1 = document.querySelector("#name1");
 let category1 = document.querySelector("#category1");
 let image1 = document.querySelector("#image1");
 let none = document.querySelector(".x");
+let img = document.querySelector("#img");
+
+image1.addEventListener("change", () => {
+  let src = image1.files[0]
+  const reader = new FileReader();
+  reader.readAsDataURL(src);
+  reader.onload = function (e) {
+    img.src = e.target.result
+  }
+})
+
 
 
 showData();
@@ -170,6 +182,12 @@ function editCard(id) {
 
   section2.style.opacity = "0.5"
   uptade.style.display = "block";
+  axios.get(`http://localhost:3000/card/${id}`).then(res => {
+    name1.value = res.data.header;
+    category1.value = res.data.son;
+    img.src = res.data.image;
+    image1.value = res.data.image
+  })
   none.addEventListener("click", (e) => {
     e.preventDefault();
     uptade.style.display = "none";
@@ -179,7 +197,13 @@ function editCard(id) {
   form1.addEventListener("submit", function (event) {
 
     event.preventDefault();
-    axios.get(`http://localhost:3000/card/${id}`).then(res => console.log(res.data))
+    axios.get(`http://localhost:3000/card/${id}`).then(res => {
+      name1.value = res.data.header;
+      category1.value = res.data.son;
+      img.src = res.data.image;
+
+    })
+
     let src1 = image1.files[0]
     const reader1 = new FileReader();
     reader1.onload = function (e) {
@@ -239,33 +263,33 @@ window.onscroll = () => {
 
 function Favorite(id) {
   event.preventDefault();
-  if(event.target.classList.contains('bi-heart')){
-  event.target.classList.remove('bi-heart')
-  event.target.classList.add('bi-heart-fill')
+  if (event.target.classList.contains('bi-heart')) {
+    event.target.classList.remove('bi-heart')
+    event.target.classList.add('bi-heart-fill')
 
-  axios.get(`http://localhost:3000/card/${id}`)
-    .then(res => {
-      console.log(res.data);
-      return res.data
-    })
-    .then(res => {
-      axios.get(`http://localhost:3000/favoourites`)
-        .then(response => {
-          let iD = response.data.find(f => f.id === response.id);
-          if (!iD) {
-            axios.post(`http://localhost:3000/favoourites`, res)
-            console.log(event.target);
-          }
-          else {
-            axios.delete(`http://localhost:3000/favoourites/${iD.id}`)
-          }
-        })
-    })
+    axios.get(`http://localhost:3000/card/${id}`)
+      .then(res => {
+        console.log(res.data);
+        return res.data
+      })
+      .then(res => {
+        axios.get(`http://localhost:3000/favoourites`)
+          .then(response => {
+            let iD = response.data.find(f => f.id === response.id);
+            if (!iD) {
+              axios.post(`http://localhost:3000/favoourites`, res)
+              console.log(event.target);
+            }
+            else {
+              axios.delete(`http://localhost:3000/favoourites/${iD.id}`)
+            }
+          })
+      })
   }
-    else {
-     event.preventDefault();
-      event.target.classList.remove('bi-heart-fill')
-      event.target.classList.add('bi-heart')
-      axios.delete(`http://localhost:3000/favoourites/${id}`)
-    }
+  else {
+    event.preventDefault();
+    event.target.classList.remove('bi-heart-fill')
+    event.target.classList.add('bi-heart')
+    axios.delete(`http://localhost:3000/favoourites/${id}`)
+  }
 }
