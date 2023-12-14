@@ -13,7 +13,6 @@ fetch(`http://localhost:3000/card/${id}`)
             <div class="text">
                 <h4>${data.header}</h4>
                 <p>${data.son}</p>
-                <a href="../index.html"> <button>BACK</button></a>
             </div>
         `
         data2.append(card2)
